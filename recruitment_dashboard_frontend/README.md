@@ -1,82 +1,57 @@
-# Lightweight React Template for KAVIA
+# Recruitment Dashboard Frontend (Streamlit)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This folder contains the Streamlit-based frontend for the Recruitment Management Dashboard. It replaces the previous React scaffold and provides a Python-first development experience with rapid iteration.
 
-## Features
-
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+## Features (current scaffold)
+- Streamlit app entrypoint with a title and welcome description
+- Sidebar navigation (Home, Recruitment Data, Visualizations, Process Management, About)
+- Placeholder sections for:
+  - Recruitment Data (tables/filters)
+  - Visualizations (charts/metrics)
+  - Process Management (actions/workflows)
+- Clear code comments indicating where to implement future features
 
 ## Getting Started
 
-In the project directory, you can run:
+1. Create and activate a virtual environment (recommended):
 
-### `npm start`
-
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-### `npm test`
-
-Launches the test runner in interactive watch mode.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
+```
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
 
-### Components
+2. Install dependencies:
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+```
+pip install -r requirements.txt
+```
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+3. Run the app:
 
-## Learn More
+```
+streamlit run streamlit_app.py
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Open the app in your browser at the URL provided by Streamlit (typically http://localhost:8501).
 
-### Code Splitting
+## Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- In future iterations, environment variables (e.g., API endpoints) can be stored in a `.env` file and loaded using `python-dotenv`.
+- This scaffold currently does not require configuration variables.
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+recruitment_dashboard_frontend/
+├── streamlit_app.py       # Main Streamlit app entrypoint
+├── requirements.txt       # Python dependencies
+└── README.md              # This file
+```
 
-### Making a Progressive Web App
+## Next Steps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Connect to backend REST API for fetching recruitment data
+- Implement filters, search, and pagination for candidate lists
+- Add interactive charts (Altair/Plotly) with real data
+- Implement process management actions (scheduling, feedback, offers)
+- Add authentication/authorization
